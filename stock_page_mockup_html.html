@@ -1,0 +1,72 @@
+<h1 id="stock-header"></h1>
+<div id="current"></div>
+<br/>
+<div id="history"></div>
+
+<script>
+// const STOCK_API_URL = "";
+const STOCK_API_URL = "https://api.example.com/stocks/";
+
+setHeader = () => {
+    const header = document.getElementById("stock-header");
+    const urlParams = new URLSearchParams(window.location.search);
+    const stockSymbol = urlParams.get("symbol");
+    const stockName = urlParams.get("name");
+
+    headerText = `Stock Information`;
+    if (stockSymbol) {
+        headerText += ` | ${stockSymbol}`;
+    }
+    if (stockName) {
+        headerText += ` | ${stockName}`;
+    }
+
+    header.textContent = headerText;
+};
+
+getInfoBySymbol = async (symbol) => {
+    // const response = await fetch(`${STOCK_API_URL}${symbol}`);
+    // const data = await response.json();
+    const data = {
+        "symbol": symbol,
+        "name": "Apple",
+        "price": 123.45,
+        "change": 1.23,
+        "percent_change": 1.01,
+        "history": [
+            {"date": "2024-06-01", "price": 120.00},
+            {"date": "2024-06-02", "price": 121.50},
+            {"date": "2024-06-03", "price": 122.75},
+            {"date": "2024-06-04", "price": 123.45}
+        ]
+    }
+    return data;
+};
+
+populateCurrentInfo = (data) => {
+    const currentDiv = document.getElementById("current");
+    currentDiv.innerHTML = `
+        <h2>Current Information</h2>
+        <p><strong>Symbol:</strong> ${data.symbol}</p>
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Price:</strong> $${data.price.toFixed(2)}</p>
+        <p><strong>Change:</strong> $${data.change.toFixed(2)} (${data.percent_change.toFixed(2)}%)</p>
+    `;
+};
+
+populateHistory = (data) => {
+    const historyDiv = document.getElementById("history");
+    let historyHTML = `<h2>Price History</h2><ul>`;
+    data.history.sort((a, b) => new Date(b.date) - new Date(a.date));
+    data.history.forEach(entry => {
+        historyHTML += `<li>${entry.date}: $${entry.price.toFixed(2)}</li>`;
+    });
+    historyHTML += `</ul>`;
+    historyDiv.innerHTML = historyHTML;
+};
+
+setHeader();
+const data = getInfoBySymbol(new URLSearchParams(window.location.search).get("symbol"));
+data.then(x => {populateCurrentInfo(x); populateHistory(x)});
+
+</script>
