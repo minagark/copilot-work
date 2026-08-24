@@ -7,6 +7,7 @@ Which one will it be?
 <div id="history"></div>
 
 <script>
+games = JSON.parse(localStorage.getItem('games')) || [];
 playRoshambo = function(clientGesture){
     if (clientGesture=='rock') {
         result = "win";
@@ -24,7 +25,6 @@ playRoshambo = function(clientGesture){
 }
 
 saveGame = function(clientGesture, serverGesture, result) {
-    games = JSON.parse(localStorage.getItem('games')) || [];
     game = {
         result: result,
         serverGesture: serverGesture,
@@ -37,7 +37,6 @@ saveGame = function(clientGesture, serverGesture, result) {
 }
 
 showHistory = function() {
-    games = JSON.parse(localStorage.getItem('games')) || [];
     historyText = "";
     for (game of games) {
         historyText += "<a href='#' onclick=\"deleteGame('" + game.time + "')\">delete</a>";
@@ -52,7 +51,6 @@ showHistory = function() {
 }
 
 deleteGame = function(time) {
-    games = JSON.parse(localStorage.getItem('games')) || [];
     games = games.filter(game => game.time != time);
     localStorage.setItem('games', JSON.stringify(games));
     showHistory();
