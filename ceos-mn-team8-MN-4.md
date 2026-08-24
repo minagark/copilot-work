@@ -1,10 +1,10 @@
 ---
-layout: index
-title: "Rock Paper Scissors: Expert Mode"
+layout: ceos-mn-index
+title: "Rock Paper Scissors"
 heading: "Rock Paper Roshambo in JavaScript"
 subheading: "Game History"
-description: "Roshambo on Expert Mode"
-user-story: "As a player, I want to play Roshambo against the computer and view my game history so that I can see the results of my previous games."
+description: "Roshambo"
+user-story: "As a user, I can play against a bot that randomly picks its play because it's more fun."
 ---
 
 Which one will it be?
@@ -18,17 +18,23 @@ Which one will it be?
 <script>
 games = JSON.parse(localStorage.getItem('games')) || [];
 playRoshambo = function(clientGesture){
-    if (clientGesture=='rock') {
+    possibleGestures = ["rock", "paper", "scissors"];
+    serverGesture = possibleGestures[Math.floor(Math.random() * 3)]; 
+    
+    if (clientGesture === serverGesture) {
+        result = "tie";
+    } else if (
+        (clientGesture === "rock" && serverGesture === "scissors") ||
+        (clientGesture === "paper" && serverGesture === "rock") ||
+        (clientGesture === "scissors" && serverGesture === "paper")
+    ) {
         result = "win";
-    }
-    if (clientGesture=='paper') {
+    } else {
         result = "lose";
     }
-    if (clientGesture=='scissors') {
-        result = "tie";
-    }
+    
     document.getElementById('results').innerHTML = result;
-    serverGesture = 'scissors';
+    
     saveGame(clientGesture, serverGesture, result);
     showHistory();
 }

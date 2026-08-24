@@ -1,10 +1,10 @@
 ---
-layout: index
+layout: ceos-mn-index
 title: "Rock Paper Scissors"
 heading: "Rock Paper Roshambo in JavaScript"
 subheading: "Game History"
 description: "Roshambo"
-user-story: "As a user, I can play a best 2 out of 3 against the bot."
+user-story: "As a user, I can play a best 2 out of 3 against the bot so that the game doesn't end too fast."
 ---
 
 Which one will it be?

@@ -1,16 +1,16 @@
 ---
-layout: index
+layout: ceos-mn-index
 title: "Rock Paper Scissors"
 heading: "Rock Paper Roshambo in JavaScript"
 subheading: "Game History"
 description: "Roshambo"
-user-story: "As a user I don't want to think about my play because I am tired."
+user-story: "As a user, I want to telegraph my play to the bot to play mind games with it."
 ---
 
 Which one will it be?
 <a href="#" onclick="playRoshambo('rock')">rock</a>
-<!-- <a href="#" onclick="playRoshambo('paper')">paper</a>
-<a href="#" onclick="playRoshambo('scissors')">scissors</a> -->
+<a href="#" onclick="playRoshambo('paper')">paper</a>
+<a href="#" onclick="playRoshambo('scissors')">scissors</a>
 <input value="" type="text" id="userInput" placeholder="Enter your choice (rock, paper, scissors)"/>
 <div id="results"></div>
 <br/>

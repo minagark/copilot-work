@@ -1,5 +1,5 @@
 ---
-layout: index
+layout: ceos-mn-index
 title: "Stock Page Mockup"
 heading: "Mockup of a Stock Page"
 subheading: "Rough mockup"
