@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: index
 title: "Rock Paper Scissors: Expert Mode"
 heading: "Rock Paper Roshambo in JavaScript"
 subheading: "Game History"
