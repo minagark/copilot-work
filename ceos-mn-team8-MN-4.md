@@ -4,7 +4,7 @@ title: "Rock Paper Scissors"
 heading: "Rock Paper Roshambo in JavaScript"
 subheading: "Game History"
 description: "Roshambo"
-user-story: "As a user, I can play against a bot that randomly picks its play because it's more fun."
+user-story: "As a user, I can play against a bot that randomly picks its play, because it's more fun than playing against a constant enemy."
 ---
 
 Which one will it be?

@@ -4,7 +4,7 @@ title: "Rock Paper Scissors"
 heading: "Rock Paper Roshambo in JavaScript"
 subheading: "Game History"
 description: "Roshambo"
-user-story: "As a user I don't want to think about my play because I am tired."
+user-story: "As a user I want to play rock every time and don't want to think about my play because I am tired."
 ---
 
 Which one will it be?

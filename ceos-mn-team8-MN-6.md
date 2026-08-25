@@ -4,7 +4,7 @@ title: "Rock Paper Scissors"
 heading: "Rock Paper Roshambo in JavaScript"
 subheading: "Game History"
 description: "Roshambo"
-user-story: "As a user, I want to telegraph my play to the bot to play mind games with it."
+user-story: "As a user, I want to telegraph my play to the bot to play mind games with it, because I like playing mindgames."
 ---
 
 Which one will it be?
